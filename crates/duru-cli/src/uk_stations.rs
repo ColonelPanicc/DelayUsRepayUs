@@ -7,7 +7,7 @@ use clap::{Args, Subcommand};
 use crate::uk_stations::download::DownloadCommand;
 use crate::uk_stations::parse::ParseCommand;
 
-pub(crate) const DEFAULT_LOCAL_JSON_FILE_NAME: &str = "uk-stations.json";
+const DEFAULT_LOCAL_JSON_FILE_NAME: &str = "uk-stations.json";
 const DEFAULT_LOCAL_TEXT_FILE_NAME: &str = "uk-stations.txt";
 
 /// The set of actions relating to UK stations.
