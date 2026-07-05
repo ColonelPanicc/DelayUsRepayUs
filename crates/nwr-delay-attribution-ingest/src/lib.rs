@@ -3,7 +3,6 @@ use serde_aux::prelude::*;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
-#[allow(dead_code)]
 pub struct DelayAttributionRecord {
     #[serde(deserialize_with = "deserialize_number_from_string")]
     pub planned_origin_location_code: u16,
