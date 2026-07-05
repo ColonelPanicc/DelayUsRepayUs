@@ -1,4 +1,5 @@
 use analyse::Analyse;
+use anyhow::Result;
 use clap::{Args, Subcommand};
 
 mod analyse;
@@ -16,7 +17,7 @@ pub enum DelayCommands {
 }
 
 impl DelaysCommand {
-    pub fn execute(self, dry_run: bool) -> anyhow::Result<()> {
+    pub fn execute(self, dry_run: bool) -> Result<()> {
         match self.command {
             DelayCommands::Analyse(cmd) => cmd.execute(dry_run),
         }

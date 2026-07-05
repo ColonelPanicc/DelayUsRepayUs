@@ -83,6 +83,13 @@ fn parse_csv(path: &Path) -> Box<dyn Iterator<Item = DelayAttributionRecord>> {
     let reader = csv::Reader::from_path(path).expect("Failed to open csv file");
     let iter = reader
         .into_deserialize::<DelayAttributionRecord>()
-        .filter_map(Result::ok);
+        .filter_map(|f| match f {
+            Ok(record) => Some(record),
+            Err(err) => {
+                eprintln!("Failed to parse CSV: {err}");
+                None
+            }
+        });
+
     Box::new(iter)
 }
